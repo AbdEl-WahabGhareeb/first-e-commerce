@@ -1,9 +1,28 @@
-import React from 'react'
+import {
+    getCategories,
+    getSupCategories,
+} from "@/app/serveractions/categories.action";
+import CategoryDisplay from "@/components/CategoryComponent/CategoryDisplay";
+import SubCategoryDisplay from "@/components/CategoryComponent/SubCategoryDisplay";
+import React from "react";
 
-export default function Category() {
-  return (
-    <div className="container mx-auto text-2xl text-center mt-12">
-      <p className="bold">Category Page</p>
-    </div>
-  )
+export default async function Category(id: string) {
+    const categories = await getCategories();
+    console.log(categories);
+
+    const subCategory = await getSupCategories(id);
+    console.log(subCategory, " sub cat from caaaaaaaaaaaat");
+
+    return (
+        <>
+            <div className="container  mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 pt-24 gap-6">
+                    <CategoryDisplay category={categories?.data} />
+                    <div className="mt-5">
+                        <SubCategoryDisplay subcategories={subCategory?.data} />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }

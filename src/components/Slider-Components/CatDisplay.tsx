@@ -18,35 +18,39 @@ export default function CatDisplay({
 }) {
     return (
         <>
-            {categories?.map((cat) => (
-                <>
-                    <Swiper
-                        slidesPerView={4}
-                        spaceBetween={30}
-                        navigation={true}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        modules={[Navigation, Pagination]}
-                        className="mySwiper"
-                    >
-                        <SwiperSlide>
-                            <div className="relative w-full h-[500px] ">
-                                <Image
-                                    className="object-cover"
-                                    sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
-                                    priority
-                                    loading="eager"
-                                    fill
-                                    src="/"
-                                    alt="Nature 1"
-                                />
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
-                    ;
-                </>
-            ))}
+            <div className="container mx-auto my-12">
+                <Swiper
+                    slidesPerView={4}
+                    spaceBetween={10}
+                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[Navigation, Pagination]}
+                    className="mySwiper "
+                >
+                    {categories?.map((cat) => (
+                        <>
+                            <SwiperSlide key={cat?._id}>
+                                <div className="relative w-full h-[300px]">
+                                    <Image
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
+                                        priority
+                                        loading="eager"
+                                        fill
+                                        src={cat?.image}
+                                        alt="Nature 1"
+                                    />
+                                </div>
+                                <p className=" bottom-0 left-0 right-0 p-2 mb-15 mt-5">
+                                    {cat?.name}
+                                </p>
+                            </SwiperSlide>
+                        </>
+                    ))}
+                </Swiper>
+            </div>
         </>
     );
 }

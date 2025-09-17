@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
@@ -14,69 +14,73 @@ import Image from "next/image";
 export default function MainSlider() {
     return (
         <>
-            <Swiper
-                spaceBetween={30}
-                effect={"fade"}
-                navigation={true}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[EffectFade, Navigation, Pagination]}
-                className="mySwiper"
-            >
-                <SwiperSlide>
-                    <div className="relative w-full h-[500px] ">
-                        <Image
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
-                            priority
-                            loading="eager"
-                            fill
-                            src="/Slider/port2.png"
-                            alt="Nature 1"
-                        />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="relative w-full h-[500px] ">
-                        <Image
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
-                            priority
-                            loading="eager"
-                            fill
-                            src="/Slider/poert1.png"
-                            alt="Nature 1"
-                        />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="relative w-full h-[500px] ">
-                        <Image
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
-                            priority
-                            loading="eager"
-                            fill
-                            src="/Slider/port3.png"
-                            alt="Nature 1"
-                        />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="relative w-full h-[500px] ">
-                        <Image
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
-                            priority
-                            loading="eager"
-                            fill
-                            src="/Slider/slider-1.jpg"
-                            alt="Nature 1"
-                        />
-                    </div>
-                </SwiperSlide>
-            </Swiper>
+            <div className="bg-slate-200 pt-12">
+                <div className="container mx-auto">
+                    <Swiper
+                        spaceBetween={30}
+                        effect={"fade"}
+                        navigation={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[EffectFade, Navigation, Pagination]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide>
+                            <div className="relative w-full h-[500px] ">
+                                <Image
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
+                                    priority
+                                    loading="eager"
+                                    fill
+                                    src="/Slider/slider1.jpg"
+                                    alt="Nature 1"
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="relative w-full h-[500px] ">
+                                <Image
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
+                                    priority
+                                    loading="eager"
+                                    fill
+                                    src="/Slider/slider2.png"
+                                    alt="Nature 1"
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="relative w-full h-[500px] ">
+                                <Image
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
+                                    priority
+                                    loading="eager"
+                                    fill
+                                    src="/Slider/slider3.jpg"
+                                    alt="Nature 1"
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="relative w-full h-[500px] mb-15">
+                                <Image
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw (max-width: 1200px) 50vw , 25vw"
+                                    priority
+                                    loading="eager"
+                                    fill
+                                    src="/Slider/slider4.jpg"
+                                    alt="Nature 1"
+                                />
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
+            </div>
         </>
     );
 }

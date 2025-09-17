@@ -2,10 +2,10 @@
 
 import axios from "axios";
 
-async function getCategories() {
+async function getProducts() {
     try {
         const response = await axios.get(
-            "https://ecommerce.routemisr.com/api/v1/categories"
+            "https://ecommerce.routemisr.com/api/v1/products"
         );
 
         return {
@@ -24,10 +24,10 @@ async function getCategories() {
     }
 }
 
-async function getSupCategories(id: string) {
+async function getProductDetails(id: string) {
     try {
         const response = await axios.get(
-            `https://ecommerce.routemisr.com/api/v1/subcategories/${id}?limit=10`
+            `https://ecommerce.routemisr.com/api/v1/products/${id}`
         );
 
         return {
@@ -46,4 +46,4 @@ async function getSupCategories(id: string) {
     }
 }
 
-export { getCategories, getSupCategories };
+export { getProducts, getProductDetails };

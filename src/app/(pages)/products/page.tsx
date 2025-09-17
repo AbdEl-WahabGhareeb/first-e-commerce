@@ -1,9 +1,18 @@
+import { getProducts } from "@/app/serveractions/products.action";
+import ProductDisplay from "@/components/ProductsComponent/ProductDisplay";
 import React from "react";
 
-export default function Products() {
+export default async function Products() {
+    const product = await getProducts();
+    console.log(product?.data, "product");
     return (
-        <div className="container mx-auto text-2xl text-center mt-12">
-            <p className="bold">Products Page</p>
-        </div>
+        <>
+            <p className="font-bold mb-8 mt-20 text-2xl text-center ">
+                Products Page
+            </p>
+            <div className="bg-slate-200 py-5">
+                <ProductDisplay products={product?.data} />
+            </div>
+        </>
     );
 }

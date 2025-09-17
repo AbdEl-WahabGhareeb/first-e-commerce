@@ -120,3 +120,6 @@
     @apply bg-background text-foreground;
   }
 }
+@theme {
+  --shadow-special: 1px 1px 10px #4fa74f; 
+}
