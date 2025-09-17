@@ -3,12 +3,32 @@ import { Categories } from "@/app/types/category.model";
 import React from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
+import {
+    getCategories,
+    getSupCategories,
+} from "@/app/serveractions/categories.action";
 
-export default function CategoryCard({ category }: { category: Categories[] }) {
+export default function CategoryDisplay({
+    category,
+}: {
+    category: Categories[];
+}) {
+
+
+    async function handleSubDisplay(id: string) {
+        const categories = await getCategories();
+        console.log(categories);
+
+        const subCategory = await getSupCategories(id);
+        console.log(subCategory, " sub cat from caaaaaaaaaaaat");
+        const subCategoory = await getSupCategories(id);
+
+        console.log(subCategoory);
+    }
     return (
         <>
             {category?.map((cat) => (
-                <div key={cat._id} >
+                <div onClick={() => handleSubDisplay(cat?._id)} key={cat._id}>
                     <Card className="relative w-full justify-around gap-0 p-0 text-center  hover:shadow-special transition-all duration-500">
                         <CardContent className="p-0">
                             <div className="relative w-full h-[300px] ">
@@ -31,7 +51,6 @@ export default function CategoryCard({ category }: { category: Categories[] }) {
                     </Card>
                 </div>
             ))}
-
         </>
     );
 }
